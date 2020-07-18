@@ -1,0 +1,67 @@
+<p>prescription works!</p>
+
+<div class="container">
+    <h1>Prescription</h1>
+    <form [formGroup] = "prescriptionForm" (ngSubmit) = "onSubmit()">
+        <div formGroupName="patient">
+            <p>
+                <label for="patientFirstName">First Name:</label>
+                <input type="text" formControlName="patientFirstName" class="form-control">
+            </p>
+            <p>
+                <label for="patientLame">Last Name:</label>
+                <input type="text" formControlName="patientLame" class="form-control">
+            </p>
+            <p>
+                <label for="gender">Gender:</label>
+                <select formControlName="gender" class="form-control">
+                    <option value=""></option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                </select>
+            </p>
+            <p>
+                <label for="age">Age:</label>
+                <input type="number" formControlName="age" class="form-control">
+            </p>
+        </div>
+        <table class="table table-bordered" formArrayName="medicine">
+            <tr>
+                <th colspan="2">Add Medicines</th>
+                <th width="150px"><button type="button" (click)="addMedicine()" class="btn btn-primary">Add More</button></th>
+            </tr>
+            <tr *ngFor="let quantity of medicine().controls; let i=index" [formGroupName]="i">
+                <td>
+                    Medicine Name:
+                    <input type="text" formControlName="medicineName" class="form-control">
+                </td>
+                <td>
+                    Medicine Type:
+                    <select formControlName="medicineType">
+                        <option value=""></option>
+                        <option value="capsule">Capsule</option>
+                        <option value="syringe">Syringe</option>
+                        <option value="tonic">Syrup</option>
+                    </select>
+                </td>
+                <td>
+                    Quantity:
+                    <input type="number" formControlName="quantity" class="form-control">
+                </td>
+                <td>
+                    Time a Day:
+                    <input type="number" formControlName="noOfTimesADay" class="form-control">
+                </td>
+                <td>
+                    Course Duration:
+                    <input type="number" formControlName="durationOfCourse" class="form-control">
+                </td>
+                <td>
+                    <button (click)="removeMedicine(i)" class="btn btn-danger">Remove</button>
+                </td>
+            </tr>
+        </table>
+        <button type="submit" class="btn btn-success">Submit</button>
+    </form>
+</div>
+

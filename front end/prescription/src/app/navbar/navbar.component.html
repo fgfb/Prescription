@@ -1,0 +1,6 @@
+<mat-toolbar>
+    <span>Medik</span>
+    <span class="example-spacer"></span>
+    <mat-icon class="example-icon" aria-hidden="false" aria-label="Example user verified icon">verified_user</mat-icon>
+    <a *ngIf = "isLoggedIn()" routerLink = "/logout" class="nav-link">Logout</a>
+</mat-toolbar>

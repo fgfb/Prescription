@@ -87,7 +87,7 @@ public class Controller {
 	/* Add Doctor under a hospital */
 
 	@PutMapping(value = "/hospital/{hospitalId}/doctors")
-	public ResponseEntity<Doctors> addDoctor(@PathVariable(value = "hospitalId") int hospitalId, @RequestBody Doctors doctors) {
+	public ResponseEntity<Hospital> addDoctor(@PathVariable(value = "hospitalId") int hospitalId, @RequestBody Doctors doctors) {
 
 		Optional<Hospital> optionalHospital = hospitalRepo.findById(hospitalId);
 		Hospital hospital = optionalHospital.get();
@@ -111,7 +111,7 @@ public class Controller {
 		
 		credentials.creatingCredentials(doc);
 		
-		return new ResponseEntity<Doctors>(doctors, HttpStatus.OK);
+		return new ResponseEntity<Hospital>(hospital, HttpStatus.OK);
 	}
 	
 	/* Get all the doctors under a hospital */

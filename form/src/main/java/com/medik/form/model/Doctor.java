@@ -40,15 +40,13 @@ public class Doctor implements Serializable {
 		
 	}
 
-	public Doctor(int doctorId, String doctorEmailId, String doctorName, String doctorLicense, String specialization,
-			List<Form> form) {
+	public Doctor(int doctorId, String doctorEmailId, String doctorName, String doctorLicense, String specialization) {
 		super();
 		this.doctorId = doctorId;
 		this.doctorEmailId = doctorEmailId;
 		this.doctorName = doctorName;
 		this.doctorLicense = doctorLicense;
 		this.specialization = specialization;
-		this.form = form;
 	}
 
 
